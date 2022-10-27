@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal Pseudo Code</title>
+</head>
+
+<body>
+    <script>
+        // SOAL 1
+        document.write("SOAL 1" + "</br>")
+        for (let n = 50; n <= 100; n++) {
+            if (n % 5 == 0) {
+                if (n <= 60) {
+                    document.write(n + " " + "KURANG" + "</br>")
+                } else if (n > 60 && n <= 70) {
+                    document.write(n + " " + "CUKUP" + "</br>")
+                } else if (n > 70 && n <= 80) {
+                    document.write(n + " " + "BAIK" + "</br>")
+                } else if (n > 80) {
+                    document.write(n + " " + "LUAR BIASA" + "</br>")
+                }
+            }
+        }
+
+
+        // SOAL 2
+        document.write("<br>")
+        document.write("SOAL 2" + "</br>")
+        function fibonacci(num) {
+            if (num < 2) {
+                return num;
+            }
+            else {
+                return fibonacci(num - 1) + fibonacci(num - 2);
+            }
+        }
+
+        for (let n = 0; n <= 20; n++) {
+            document.write(fibonacci(n) + " ")
+        }
+        document.write("<br>")
+
+        //  SOAL 3
+        document.write("<br>")
+        document.write("SOAL 3" + "</br>")
+        function dinamisX(x) {
+            for (a = 0; a < x; a++) {
+                for (b = 0; b < x; b++) {
+                    if (b <= a) document.write("*")
+                    else document.write(" ")
+                }
+                document.write("</br>")
+            }
+        }
+
+        // jika x = 1
+        document.write("<br>")
+        document.write(" Variabel X = 1" + "<br>")
+        dinamisX(1)
+
+        // jika x = 2
+        document.write("<br>")
+        document.write(" Variabel X = 2" + "<br>")
+        dinamisX(2)
+
+        // jika x = 1
+        document.write("<br>")
+        document.write(" Variabel X = 3" + "<br>")
+        dinamisX(3)
+
+
+        // SOAL 4
+        document.write("<br>")
+        document.write("SOAL 4" + "</br>")
+        function terbilang(x) {
+            const angka = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            const bilangan = ["Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan"]
+            const arrayOfDigits = Array.from(String(x), Number);
+            // untuk ribu pas
+            if (arrayOfDigits[0] != 0 && arrayOfDigits[1] == 0 && arrayOfDigits[2] == 0 && arrayOfDigits[3] == 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                document.write(`${resultPertama} Ribu <br>`)
+            }
+            // dua ribu satuan  
+            else if (arrayOfDigits[0] != 0 && arrayOfDigits[1] == 0 && arrayOfDigits[2] == 0 && arrayOfDigits[3] != 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                const resultKedua = bilangan[arrayOfDigits[3] - 1]
+                document.write(`${resultPertama} Ribu ${resultKedua} <br>`)
+            }
+            // dua ribu puluhan pas
+            else if (arrayOfDigits[0] != 0 && arrayOfDigits[1] == 0 && arrayOfDigits[2] != 0 && arrayOfDigits[3] == 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                var resultKedua
+                if (arrayOfDigits[2] == 1) {
+                    resultKedua = "Sepuluh"
+                } else {
+                    resultKedua = `${bilangan[arrayOfDigits[2] - 1]} Puluh`
+                }
+                document.write(`${resultPertama} Ribu ${resultKedua} <br>`)
+            }
+            // dua ribu belasan
+            else if (arrayOfDigits[0] != 0 && arrayOfDigits[1] == 0 && arrayOfDigits[2] != 0 && arrayOfDigits[3] != 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                var resultKedua
+                if (arrayOfDigits[2] == 1 && arrayOfDigits[3] == 1) {
+                    resultKedua = "Sebelas"
+                } else if (arrayOfDigits[3] != 1) {
+                    resultKedua = `${bilangan[arrayOfDigits[3] - 1]} Belas`
+                }
+                document.write(`${resultPertama} Ribu ${resultKedua} <br>`)
+            }
+            // dua ribu puluhan lebih
+            else if (arrayOfDigits[0] != 0 && arrayOfDigits[1] == 0 && arrayOfDigits[2] != 0 && arrayOfDigits[3] != 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                var resultKedua
+                if (arrayOfDigits[2] == 1) {
+                    resultKedua = "Sepuluh"
+                } else if (arrayOfDigits[3] != 1) {
+                    resultKedua = `${bilangan[arrayOfDigits[2] - 1]} Puluh ${bilangan[arrayOfDigits[3] - 1]}`
+                }
+                document.write(`${resultPertama} Ribu ${resultKedua} <br>`)
+            }
+               // dua ribu ratus
+            else if (arrayOfDigits[0] != 0 && arrayOfDigits[1] != 0 && arrayOfDigits[2] == 0 && arrayOfDigits[3] == 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                const resultKedua = bilangan[arrayOfDigits[1] - 1]
+                document.write(`${resultPertama} Ribu ${resultKedua} Ratus <br>`)
+            }
+            // dua ribu ratus puluh pas
+            else if (arrayOfDigits[0] != 0 && arrayOfDigits[1] != 0 && arrayOfDigits[2] != 0 && arrayOfDigits[3] == 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                const resultKedua = bilangan[arrayOfDigits[1] - 1]
+                var resultKetiga
+                if (arrayOfDigits[2] == 1) {
+                    resultKetiga = "Sepuluh"
+                } else {
+                    resultKetiga = `${bilangan[arrayOfDigits[2] - 1]} Puluh`
+                }
+                document.write(`${resultPertama} Ribu ${resultKedua} Ratus ${resultKetiga} <br>`)
+            }
+            // dua ratus puluhan 
+            else if (arrayOfDigits[0] != 0 && arrayOfDigits[1] != 0 && arrayOfDigits[2] != 0 && arrayOfDigits[3] != 0) {
+                const resultPertama = bilangan[arrayOfDigits[0] - 1]
+                const resultKedua = bilangan[arrayOfDigits[1] - 1]
+                const resultKetiga = `${bilangan[arrayOfDigits[2] - 1]} Puluh ${bilangan[arrayOfDigits[3] - 1]}`
+                document.write(`${resultPertama} Ribu ${resultKedua} Ratus ${resultKetiga} <br>`)
+            }
+
+        }
+
+        terbilang(2000)
+        terbilang(2001)
+        terbilang(2010)
+        terbilang(2011)
+        terbilang(2012)
+        terbilang(2500)
+        terbilang(2510)
+        terbilang(2520)
+        terbilang(2524)
+    </script>
+</body>
+
+</html>
